@@ -1,0 +1,13 @@
+{
+    "name": "mahmutbayri/reactphp-long-poll",
+    "authors": [
+        {
+            "name": "Mahmut Bayri",
+            "email": "mahmutbayri@yahoo.com"
+        }
+    ],
+    "require": {
+        "react/http": "^1.1",
+        "clue/redis-react": "^2.4"
+    }
+}

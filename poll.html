@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>ReactPHP Long Poll Example</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+
+<h1>Results here</h1>
+<ol id="results">
+    <!-- Results --->
+</ol>
+
+<script>
+    function longPoll() {
+        jQuery
+            .ajax('http://__SERVER_URL__/poll', {
+                type: "GET",
+                contentType: "text/plain",
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true
+            })
+            .done(function (data) {
+                $('<li>' + data + '</li>').appendTo('#results');
+                longPoll();
+            });
+    }
+
+    longPoll();
+</script>
+</body>
+</html>
